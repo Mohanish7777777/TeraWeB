@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terabox Video Downloader</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Terabox Video Downloader</h1>
+        <form action="/download" method="POST">
+            <input type="url" name="teraUrl" placeholder="Enter Terabox Video URL" required>
+            <button type="submit">Download</button>
+        </form>
+
+        <% if (error) { %>
+            <div class="error"><%= error %></div>
+        <% } %>
+
+        <% if (downloadUrl && watchUrl) { %>
+            <div class="links">
+                <p><strong>Download Link:</strong> <a href="<%= downloadUrl %>" target="_blank">Click Here</a></p>
+                <p><strong>Watch Online:</strong> <a href="<%= watchUrl %>" target="_blank">Click Here</a></p>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
